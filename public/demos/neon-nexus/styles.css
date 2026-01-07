@@ -1,0 +1,66 @@
+/* Neon Nexus - Embedded Demo Styles */
+:root{
+  --bg:#05070d;
+  --panel:rgba(8,12,22,.82);
+  --panel-solid:#0b1020;
+  --text:#f1f5ff;
+  --muted:#9fb1d2;
+  --cy:#00eaff;
+  --mg:#ff33d2;
+  --yl:#f6f779;
+  --shadow:0 0 18px rgba(0,234,255,.32),0 0 32px rgba(255,51,210,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:"Oxanium", system-ui, sans-serif;
+  color:var(--text);
+  background: linear-gradient(135deg, rgba(5,9,18,.95), rgba(12,18,36,.85)), #05070d;
+  font-size: clamp(10px, 2vw, 14px);
+}
+
+.site-header{
+  display:flex; align-items:center; gap:clamp(4px, 1vw, 8px); justify-content:space-between;
+  padding:clamp(4px, 1vw, 8px) clamp(6px, 1.5vw, 12px); background:rgba(8,9,12,.85); backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(0,240,255,.15);
+}
+.brand{display:flex; align-items:center; gap:clamp(2px, 0.5vw, 4px)}
+.brand .logo-glow{color:var(--cy); text-shadow:var(--shadow); font-size:clamp(12px, 2vw, 16px)}
+.brand h1{font:700 clamp(10px, 1.8vw, 14px)/1 "Share Tech Mono", monospace; letter-spacing:.06em}
+
+.nav-toggle{display:none}
+.nav-list{display:flex; gap:clamp(2px, 0.5vw, 4px); list-style:none}
+.nav-list a{display:block; padding:clamp(2px, 0.5vw, 4px) clamp(4px, 1vw, 8px); border-radius:6px; text-decoration:none; color:var(--text); border:1px solid transparent; font-size:clamp(9px, 1.4vw, 12px)}
+.nav-list a:hover{border-color:rgba(0,240,255,.3)}
+.nav-list a.active{color:var(--cy); border-color:rgba(0,240,255,.5)}
+
+.btn-primary{background:linear-gradient(90deg,var(--mg),var(--cy)); color:#020205; border:none; padding:clamp(3px, 0.8vw, 6px) clamp(6px, 1.2vw, 10px); border-radius:8px; font-weight:700; cursor:pointer; font-size:clamp(9px, 1.4vw, 12px); text-decoration:none}
+.btn-ghost{color:var(--cy); border:1px solid rgba(0,240,255,.4); padding:clamp(3px, 0.8vw, 6px) clamp(6px, 1.2vw, 10px); border-radius:8px; font-size:clamp(9px, 1.4vw, 12px); text-decoration:none}
+
+.section{padding:clamp(8px, 2vw, 16px); margin:clamp(6px, 1.5vw, 12px); background:linear-gradient(180deg, rgba(11,16,28,.86), rgba(8,12,22,.62)); border:1px solid rgba(0,234,255,.18); border-radius:clamp(10px, 2vw, 14px)}
+.section-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:clamp(4px, 1vw, 8px)}
+.section-head h2{font-size:clamp(12px, 2vw, 16px)}
+
+.hero{display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(8px, 2vw, 16px); padding:clamp(8px, 2vw, 16px); margin:clamp(6px, 1.5vw, 12px); background:linear-gradient(160deg, rgba(5,9,18,.85), rgba(9,15,30,.65)); border:1px solid rgba(0,234,255,.18); border-radius:clamp(12px, 2.5vw, 16px)}
+.hero-content h2{font-size:clamp(16px, 3vw, 22px); margin-bottom:clamp(3px, 0.8vw, 6px); text-shadow:var(--shadow)}
+.hero-content p{color:var(--muted); font-size:clamp(10px, 1.6vw, 13px); margin-bottom:clamp(4px, 1vw, 8px)}
+.cta-group{display:flex; gap:clamp(4px, 1vw, 8px)}
+
+.hero-dual{display:grid; grid-template-columns:1fr 1fr; gap:clamp(3px, 0.8vw, 6px); align-items:center}
+.monitor{height:clamp(50px, 12vw, 80px); border-radius:8px; background:radial-gradient(100px 60px at 50% 50%, rgba(0,240,255,.18), rgba(255,0,230,.12) 60%, transparent), #0a0c12; border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow)}
+.monitor.second{transform:translateY(6px)}
+
+.cards-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(4px, 1vw, 8px)}
+.card{background:var(--panel); border:1px solid rgba(0,234,255,.15); border-radius:clamp(8px, 1.5vw, 10px); overflow:hidden; transition:transform .2s, box-shadow .2s}
+.card:hover{transform:translateY(-4px); box-shadow:0 16px 32px rgba(0,234,255,.2)}
+.card .thumb{height:clamp(45px, 10vw, 70px); display:flex; align-items:center; justify-content:center}
+.card .body{padding:clamp(4px, 1vw, 8px)}
+.card .body h3{font-size:clamp(9px, 1.5vw, 12px); margin-bottom:clamp(2px, 0.5vw, 4px)}
+.card .meta{display:flex; justify-content:space-between; color:var(--muted); font-size:clamp(8px, 1.2vw, 10px)}
+
+.site-footer{margin:clamp(6px, 1.5vw, 12px); padding:clamp(6px, 1.5vw, 12px); border-top:1px solid rgba(0,234,255,.18); color:var(--muted); font-size:clamp(9px, 1.4vw, 12px); text-align:center}
+
+@media (max-width: 500px){
+  .hero{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:1fr}
+}

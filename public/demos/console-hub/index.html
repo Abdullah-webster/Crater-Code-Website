@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retro Console Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Console Select Screen -->
+    <div class="screen active" id="consoles">
+      <header class="header">
+        <h1>🎮 Console Hub</h1>
+      </header>
+      
+      <div class="console-grid">
+        <div class="console-card">
+          <div class="console-icon">🕹️</div>
+          <span class="console-name">NES</span>
+          <span class="game-count">847 Games</span>
+        </div>
+        <div class="console-card">
+          <div class="console-icon">🎮</div>
+          <span class="console-name">SNES</span>
+          <span class="game-count">1,234 Games</span>
+        </div>
+        <div class="console-card">
+          <div class="console-icon">💿</div>
+          <span class="console-name">N64</span>
+          <span class="game-count">387 Games</span>
+        </div>
+        <div class="console-card">
+          <div class="console-icon">📀</div>
+          <span class="console-name">PS1</span>
+          <span class="game-count">2,418 Games</span>
+        </div>
+        <div class="console-card">
+          <div class="console-icon">🎯</div>
+          <span class="console-name">GBA</span>
+          <span class="game-count">1,538 Games</span>
+        </div>
+        <div class="console-card">
+          <div class="console-icon">🌟</div>
+          <span class="console-name">Genesis</span>
+          <span class="game-count">915 Games</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game Library Screen -->
+    <div class="screen" id="library">
+      <header class="header">
+        <h1>📀 SNES Library</h1>
+      </header>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search games...">
+      </div>
+
+      <div class="game-list">
+        <div class="game-item">
+          <div class="game-art">🍄</div>
+          <div class="game-info">
+            <span class="game-title">Super Mario World</span>
+            <span class="game-meta">Platform • 1990</span>
+          </div>
+          <button class="play-btn">▶</button>
+        </div>
+        <div class="game-item">
+          <div class="game-art">🗡️</div>
+          <div class="game-info">
+            <span class="game-title">Zelda: A Link to the Past</span>
+            <span class="game-meta">Adventure • 1991</span>
+          </div>
+          <button class="play-btn">▶</button>
+        </div>
+        <div class="game-item">
+          <div class="game-art">🦊</div>
+          <div class="game-info">
+            <span class="game-title">Star Fox</span>
+            <span class="game-meta">Shooter • 1993</span>
+          </div>
+          <button class="play-btn">▶</button>
+        </div>
+        <div class="game-item">
+          <div class="game-art">🏎️</div>
+          <div class="game-info">
+            <span class="game-title">F-Zero</span>
+            <span class="game-meta">Racing • 1990</span>
+          </div>
+          <button class="play-btn">▶</button>
+        </div>
+        <div class="game-item">
+          <div class="game-art">🦸</div>
+          <div class="game-info">
+            <span class="game-title">Super Metroid</span>
+            <span class="game-meta">Action • 1994</span>
+          </div>
+          <button class="play-btn">▶</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Now Playing Screen -->
+    <div class="screen" id="playing">
+      <header class="header">
+        <h1>🎮 Now Playing</h1>
+      </header>
+      
+      <div class="emulator-frame">
+        <div class="game-screen">
+          <div class="pixel-art">
+            <div class="mario">🍄</div>
+            <div class="ground"></div>
+          </div>
+        </div>
+        <div class="controls">
+          <div class="dpad">
+            <button class="dpad-btn up">▲</button>
+            <button class="dpad-btn left">◀</button>
+            <button class="dpad-btn right">▶</button>
+            <button class="dpad-btn down">▼</button>
+          </div>
+          <div class="action-btns">
+            <button class="action-btn b">B</button>
+            <button class="action-btn a">A</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-controls">
+        <button class="ctrl-btn">⏸️ Pause</button>
+        <button class="ctrl-btn">💾 Save</button>
+        <button class="ctrl-btn">📂 Load</button>
+      </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-screen="consoles">
+        <span>🕹️</span>
+        <span>Consoles</span>
+      </button>
+      <button class="nav-btn" data-screen="library">
+        <span>📀</span>
+        <span>Library</span>
+      </button>
+      <button class="nav-btn" data-screen="playing">
+        <span>🎮</span>
+        <span>Play</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(n => n.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector(`[data-screen="${id}"]`).classList.add('active');
+    }
+    document.querySelectorAll('[data-screen]').forEach(el => {
+      el.addEventListener('click', () => showScreen(el.dataset.screen));
+    });
+    // Auto-rotate
+    const screens = ['consoles', 'library', 'playing'];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % screens.length;
+      showScreen(screens[idx]);
+    }, 4000);
+  </script>
+</body>
+</html>

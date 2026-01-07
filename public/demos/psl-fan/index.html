@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PSL Fan Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Live Match Screen -->
+    <div class="screen active" id="live">
+      <header class="header">
+        <h1>🏏 PSL Live</h1>
+        <span class="live-badge">● LIVE</span>
+      </header>
+      
+      <div class="match-card">
+        <div class="teams">
+          <div class="team">
+            <div class="team-logo">🦁</div>
+            <span class="team-name">Lahore</span>
+            <span class="score">186/4</span>
+            <span class="overs">(18.2 ov)</span>
+          </div>
+          <div class="vs">VS</div>
+          <div class="team">
+            <div class="team-logo">🦅</div>
+            <span class="team-name">Karachi</span>
+            <span class="score">142/8</span>
+            <span class="overs">(20 ov)</span>
+          </div>
+        </div>
+        <div class="match-status">Lahore needs 45 runs from 10 balls</div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <span class="stat-label">Run Rate</span>
+          <span class="stat-value">10.14</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Required</span>
+          <span class="stat-value">27.00</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-label">Last 5</span>
+          <span class="stat-value">42</span>
+        </div>
+      </div>
+
+      <div class="batsmen">
+        <h3>At Crease</h3>
+        <div class="player-row">
+          <span class="player-name">Fakhar Zaman*</span>
+          <span class="player-score">78 (42)</span>
+        </div>
+        <div class="player-row">
+          <span class="player-name">Shaheen Shah</span>
+          <span class="player-score">12 (8)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Screen -->
+    <div class="screen" id="stats">
+      <header class="header">
+        <h1>📊 Statistics</h1>
+      </header>
+      
+      <div class="leaderboard">
+        <h3>Top Run Scorers</h3>
+        <div class="leader-row">
+          <span class="rank">1</span>
+          <span class="name">Babar Azam</span>
+          <span class="value">542</span>
+        </div>
+        <div class="leader-row">
+          <span class="rank">2</span>
+          <span class="name">Fakhar Zaman</span>
+          <span class="value">498</span>
+        </div>
+        <div class="leader-row">
+          <span class="rank">3</span>
+          <span class="name">Mohammad Rizwan</span>
+          <span class="value">467</span>
+        </div>
+      </div>
+
+      <div class="leaderboard">
+        <h3>Top Wicket Takers</h3>
+        <div class="leader-row">
+          <span class="rank">1</span>
+          <span class="name">Shaheen Afridi</span>
+          <span class="value">18</span>
+        </div>
+        <div class="leader-row">
+          <span class="rank">2</span>
+          <span class="name">Haris Rauf</span>
+          <span class="value">15</span>
+        </div>
+        <div class="leader-row">
+          <span class="rank">3</span>
+          <span class="name">Naseem Shah</span>
+          <span class="value">14</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community Screen -->
+    <div class="screen" id="community">
+      <header class="header">
+        <h1>💬 Fan Zone</h1>
+      </header>
+      
+      <div class="feed">
+        <div class="post">
+          <div class="post-avatar">🦁</div>
+          <div class="post-content">
+            <strong>Lahore Fan</strong>
+            <p>What a match! Fakhar is on fire! 🔥</p>
+            <div class="post-meta">
+              <span>❤️ 234</span>
+              <span>💬 45</span>
+            </div>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-avatar">🦅</div>
+          <div class="post-content">
+            <strong>Karachi Supporter</strong>
+            <p>Still believe in our boys! Come on Kings!</p>
+            <div class="post-meta">
+              <span>❤️ 189</span>
+              <span>💬 32</span>
+            </div>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-avatar">🏏</div>
+          <div class="post-content">
+            <strong>Cricket Analyst</strong>
+            <p>This is turning into a classic PSL final!</p>
+            <div class="post-meta">
+              <span>❤️ 567</span>
+              <span>💬 89</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Nav -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-screen="live">
+        <span>🏏</span>
+        <span>Live</span>
+      </button>
+      <button class="nav-btn" data-screen="stats">
+        <span>📊</span>
+        <span>Stats</span>
+      </button>
+      <button class="nav-btn" data-screen="community">
+        <span>💬</span>
+        <span>Fans</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(n => n.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector(`[data-screen="${id}"]`).classList.add('active');
+    }
+    document.querySelectorAll('[data-screen]').forEach(el => {
+      el.addEventListener('click', () => showScreen(el.dataset.screen));
+    });
+    // Auto-rotate
+    const screens = ['live', 'stats', 'community'];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % screens.length;
+      showScreen(screens[idx]);
+    }, 4000);
+  </script>
+</body>
+</html>

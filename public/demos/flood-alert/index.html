@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flood & Quake Alert System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Screens -->
+    <div class="screen active" id="home">
+      <header class="header">
+        <div class="header-left">
+          <h1>Dashboard</h1>
+          <p class="date">Monday, December 22, 2024</p>
+        </div>
+        <div class="notification-btn">🔔</div>
+      </header>
+
+      <!-- Weather Card -->
+      <div class="weather-card">
+        <div class="weather-bg"></div>
+        <div class="weather-content">
+          <div class="weather-top">
+            <span class="location">📍 New York</span>
+            <span class="wind">💨 4.3mph SE</span>
+          </div>
+          <div class="weather-main">
+            <div class="time-display">
+              <span class="time">2:45</span>
+              <span class="ampm">PM</span>
+            </div>
+            <div class="temp-display">
+              <span class="temp">18°C</span>
+              <span class="condition">Partly Cloudy</span>
+            </div>
+          </div>
+          <div class="weather-details">
+            <span>💧 65%</span>
+            <span>🌡️ 1013 hPa</span>
+          </div>
+          <div class="forecast">
+            <div class="forecast-day"><span>FRI</span><span>☀️</span><span>10°/6°</span></div>
+            <div class="forecast-day"><span>SAT</span><span>☁️</span><span>13°/8°</span></div>
+            <div class="forecast-day"><span>SUN</span><span>🌧️</span><span>13°/5°</span></div>
+            <div class="forecast-day"><span>MON</span><span>⛈️</span><span>10°/7°</span></div>
+            <div class="forecast-day"><span>TUE</span><span>🌧️</span><span>12°/9°</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metrics -->
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-icon">💧</span>
+          <span class="metric-value">65%</span>
+          <span class="metric-label">Humidity</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">💨</span>
+          <span class="metric-value">12 km/h</span>
+          <span class="metric-label">Wind</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">🌡️</span>
+          <span class="metric-value">1013</span>
+          <span class="metric-label">Pressure</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">☀️</span>
+          <span class="metric-value">3</span>
+          <span class="metric-label">UV Index</span>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <h3 class="section-title">Quick Actions</h3>
+      <div class="actions-grid">
+        <div class="action-card" data-screen="report">
+          <span class="action-icon">📝</span>
+          <span>Report</span>
+        </div>
+        <div class="action-card" data-screen="community">
+          <span class="action-icon">👥</span>
+          <span>Community</span>
+        </div>
+        <div class="action-card" data-screen="map">
+          <span class="action-icon">🗺️</span>
+          <span>Map</span>
+        </div>
+      </div>
+
+      <!-- Alerts -->
+      <h3 class="section-title">Current Alerts</h3>
+      <div class="alerts-list">
+        <div class="alert-card warning">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-info">
+            <strong>Flood Warning</strong>
+            <p>Heavy rainfall expected in coastal areas</p>
+            <span class="alert-time">2 hours ago</span>
+          </div>
+        </div>
+        <div class="alert-card info">
+          <div class="alert-icon">ℹ️</div>
+          <div class="alert-info">
+            <strong>Weather Advisory</strong>
+            <p>Strong winds expected tonight</p>
+            <span class="alert-time">5 hours ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Map Screen -->
+    <div class="screen" id="map">
+      <header class="header">
+        <button class="back-btn" data-screen="home">←</button>
+        <h1>Live Map</h1>
+      </header>
+      <div class="map-container">
+        <div class="map-placeholder">
+          <div class="map-grid"></div>
+          <div class="map-marker flood" style="top: 30%; left: 40%">🌊</div>
+          <div class="map-marker quake" style="top: 60%; left: 70%">📍</div>
+          <div class="map-marker safe" style="top: 45%; left: 25%">✓</div>
+        </div>
+        <div class="map-legend">
+          <span><i class="flood"></i> Flood Zone</span>
+          <span><i class="quake"></i> Seismic Activity</span>
+          <span><i class="safe"></i> Safe Zone</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Chat Screen -->
+    <div class="screen" id="chat">
+      <header class="header">
+        <button class="back-btn" data-screen="home">←</button>
+        <h1>AI Assistant</h1>
+      </header>
+      <div class="chat-container">
+        <div class="chat-messages">
+          <div class="message bot">
+            <span class="avatar">🤖</span>
+            <div class="bubble">Hello! I'm your emergency assistant. How can I help you today?</div>
+          </div>
+          <div class="message user">
+            <div class="bubble">What should I do during a flood?</div>
+          </div>
+          <div class="message bot">
+            <span class="avatar">🤖</span>
+            <div class="bubble">During a flood: 1) Move to higher ground immediately 2) Avoid walking in moving water 3) Stay away from power lines 4) Call emergency services if needed</div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Ask me anything...">
+          <button>Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community Screen -->
+    <div class="screen" id="community">
+      <header class="header">
+        <button class="back-btn" data-screen="home">←</button>
+        <h1>Community</h1>
+      </header>
+      <div class="community-feed">
+        <div class="post">
+          <div class="post-header">
+            <span class="post-avatar">👤</span>
+            <div>
+              <strong>Local Resident</strong>
+              <span class="post-time">10 min ago</span>
+            </div>
+          </div>
+          <p>Water level rising near Main Street. Stay safe everyone!</p>
+          <div class="post-actions">
+            <span>❤️ 24</span>
+            <span>💬 8</span>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <span class="post-avatar">🏥</span>
+            <div>
+              <strong>City Hospital</strong>
+              <span class="post-time">1 hour ago</span>
+            </div>
+          </div>
+          <p>Emergency services available 24/7. Contact us at emergency hotline.</p>
+          <div class="post-actions">
+            <span>❤️ 56</span>
+            <span>💬 12</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report Screen -->
+    <div class="screen" id="report">
+      <header class="header">
+        <button class="back-btn" data-screen="home">←</button>
+        <h1>Report Incident</h1>
+      </header>
+      <div class="report-form">
+        <div class="form-group">
+          <label>Incident Type</label>
+          <select>
+            <option>Flood</option>
+            <option>Earthquake</option>
+            <option>Landslide</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" placeholder="Enter location or use GPS">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea placeholder="Describe the incident..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Severity</label>
+          <div class="severity-options">
+            <button class="severity low">Low</button>
+            <button class="severity medium active">Medium</button>
+            <button class="severity high">High</button>
+          </div>
+        </div>
+        <button class="submit-btn">Submit Report</button>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-screen="home">
+        <span class="nav-icon">🏠</span>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-screen="map">
+        <span class="nav-icon">🗺️</span>
+        <span>Map</span>
+      </button>
+      <button class="nav-btn" data-screen="chat">
+        <span class="nav-icon">🤖</span>
+        <span>AI Chat</span>
+      </button>
+      <button class="nav-btn" data-screen="community">
+        <span class="nav-icon">👥</span>
+        <span>Community</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    // Screen navigation
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(n => n.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      const navBtn = document.querySelector(`.nav-btn[data-screen="${id}"]`);
+      if (navBtn) navBtn.classList.add('active');
+    }
+
+    // Navigation clicks
+    document.querySelectorAll('[data-screen]').forEach(el => {
+      el.addEventListener('click', () => showScreen(el.dataset.screen));
+    });
+
+    // Auto-rotate for demo
+    const screens = ['home', 'map', 'chat', 'community', 'report'];
+    let idx = 0;
+    setInterval(() => {
+      idx = (idx + 1) % screens.length;
+      showScreen(screens[idx]);
+    }, 4000);
+  </script>
+</body>
+</html>
