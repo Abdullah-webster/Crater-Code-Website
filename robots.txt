@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow non-public/admin endpoints
+Disallow: /academy/admin/
+Disallow: /demos/wrapper.html
+
+# Sitemaps
+Sitemap: https://cratercode.com/sitemap.xml

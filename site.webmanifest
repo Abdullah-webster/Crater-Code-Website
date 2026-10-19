@@ -1,0 +1,21 @@
+{
+  "name": "CRATER CODE",
+  "short_name": "CraterCode",
+  "description": "Elite technology studio crafting next-generation digital experiences.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/assets/images/brand/logo_in_black.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/assets/images/brand/logo_in_black.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

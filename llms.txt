@@ -1,0 +1,27 @@
+# CRATER CODE
+> Elite technology studio crafting next-generation digital experiences. We build what others imagine.
+
+CRATER CODE is a premier software engineering and design studio specializing in scalable full-stack web applications, mobile app development (Flutter, React Native, Swift, Kotlin), interactive 3D WebGL experiences, cloud architecture & DevOps, custom AI/ML solutions, and blockchain technology. We also run Crater Code Academy, providing high-impact developer training in modern web, mobile, data science, and AI development.
+
+## Core Navigation & Pages
+- Homepage: https://cratercode.com/
+- Services: https://cratercode.com/services/ (Full-stack Web, Mobile Apps, UI/UX Design, 3D WebGL, AI & ML, Cloud & DevOps, Blockchain, Technical Consulting)
+- Projects: https://cratercode.com/projects/ (Client work, case studies, enterprise platforms)
+- Products: https://cratercode.com/products/ (Proprietary software tools & digital solutions)
+- Academy: https://cratercode.com/academy/ (Industry-aligned tech education & bootcamps)
+  - Web Development Fundamentals: https://cratercode.com/academy/courses/web-development-fundamentals/
+  - Advanced React Architecture: https://cratercode.com/academy/courses/react-advanced-concepts/
+  - Python for Data Science: https://cratercode.com/academy/courses/python-data-science/
+  - Flutter Mobile Development: https://cratercode.com/academy/courses/flutter-mobile-development/
+  - AI & Machine Learning Foundations: https://cratercode.com/academy/courses/ai-machine-learning-basics/
+  - React Native Cross-Platform: https://cratercode.com/academy/courses/react-native-cross-platform/
+  - Apply to Academy: https://cratercode.com/academy/apply/
+  - Academy FAQ: https://cratercode.com/academy/faq/
+- About Us: https://cratercode.com/about/ (Company mission, engineering philosophy, leadership team)
+- Contact: https://cratercode.com/contact/ (Project inquiries, partnerships, consultation)
+
+## Contact Information
+- Email: info@cratercode.com
+- GitHub: https://github.com/crater-code
+- LinkedIn: https://linkedin.com/company/cratercode
+- Location: Pakistan
